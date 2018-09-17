@@ -17,7 +17,7 @@ First we follow these steps to launch your Oracle Linux instance:
  - Launch an Oracle Linux instance
  - Connect to the Oracle Linux instance
 
-![alt text](oracle-linux-steps.png "Task flow overview to launch your first Oracle Linux instance")
+![alt text](images/oracle-linux-steps.png "Task flow overview to launch your first Oracle Linux instance")
 
 ### Prepare a key pair
 
@@ -41,50 +41,50 @@ Your public key has been saved in /home/honsu/.ssh/id_rsa.pub.
 
 Log into the Oracle Cloud Infrastructure console.
 
-![alt text](oracle-cloud-infrastructure_sign-in.png "Oracle Cloud Infrastructure - Sign-In")
+![alt text](images/oracle-cloud-infrastructure_sign-in.png "Oracle Cloud Infrastructure - Sign-In")
 
 Oracle Cloud Infrastructure uses the term compartment to describe a collection of related resources (such as cloud networks, compute instances, or block volumes) that you organize and manage within your account. The root compartment is the top level compartment within your account, which is created automatically when your account is provisioned by Oracle Cloud Infrastructure.
 In the example below the root compartment is `ovm`.
 
-![alt text](oracle-cloud-infrastructure_compartments.png "Oracle Cloud Infrastructure - Compartments")
+![alt text](images/oracle-cloud-infrastructure_compartments.png "Oracle Cloud Infrastructure - Compartments")
 
 If you don't already have a compartment, create one to start organizing your computing resources. In the example below, the ovm-demo compartment is been created.
 
-![alt text](oracle-cloud-infrastructure_create-compartment.png "Oracle Cloud Infrastructure - Create Compartment")
+![alt text](images/oracle-cloud-infrastructure_create-compartment.png "Oracle Cloud Infrastructure - Create Compartment")
 
 ### Prepare a cloud network
 
 Next you need to create a virtual cloud network (VCN) to launch the Oracle Linux instance into. In the example below, we choose the option "CREATE VIRTUAL CLOUD NETWORK PLUS RELATED RESOURCES" with the default values when creating a VCN `ovm-network` which is placed within the compartment `ovm-demo`.
 
-![alt text](oracle-cloud-infrastructure_create-vcn.png "Oracle Cloud Infrastructure - Create VCN")
+![alt text](images/oracle-cloud-infrastructure_create-vcn.png "Oracle Cloud Infrastructure - Create VCN")
 
 ### Create network Ingress Rule
 
 Next you need to create a network Ingress Rule to to allow inbound requests from the public internet to reach your Fn server. In the example below, we add a stateful ingress rule to the Default Security List for our `ovm-network` VCN. Specify the source CIDR as `0.0.0.0/0`, the protocol as `TCP`, & the destination port range as `8080`.
 
-![alt text](oracle-cloud-infrastructure_create-secrule.png "Oracle Cloud Infrastructure - Create VCN")
+![alt text](images/oracle-cloud-infrastructure_create-secrule.png "Oracle Cloud Infrastructure - Create VCN")
 
 ### Launch an Oracle Linux instance
 
 Now you are ready to launch an Oracle Linux instance.
 
-![alt text](oracle-cloud-infrastructure_launch-instance.png "Oracle Cloud Infrastructure - Launch Instance")
+![alt text](images/oracle-cloud-infrastructure_launch-instance.png "Oracle Cloud Infrastructure - Launch Instance")
 
 The example below creates an Oracle Linux instance using the shape VM.Standard2.1 based on an Oracle Linux 7.5 OS. You need to use the ssh key file you created earlier.
 
-![alt text](oracle-cloud-infrastructure_instance-options.png "Oracle Cloud Infrastructure - Instance Options")
+![alt text](images/oracle-cloud-infrastructure_instance-options.png "Oracle Cloud Infrastructure - Instance Options")
 
 After you click "Launch Instance", the Oracle Linux 7.4 instance is being provisioned.
 
-![alt text](oracle-cloud-infrastructure_instance-provisioning.png "Oracle Cloud Infrastructure - Instance Provisioning")
+![alt text](images/oracle-cloud-infrastructure_instance-provisioning.png "Oracle Cloud Infrastructure - Instance Provisioning")
 
 After a few seconds, the status is changed from "PROVISIONING" to "running".
 
-![alt text](oracle-cloud-infrastructure_instance-running.png "Oracle Cloud Infrastructure - Instance Running")
+![alt text](images/oracle-cloud-infrastructure_instance-running.png "Oracle Cloud Infrastructure - Instance Running")
 
 You now click the instance name "Oracle-Linux-7.4-vm1" to see the details of the instance and write down the public IP address which you'll use to connect to the instance in the next step.
 
-![alt text](oracle-cloud-infrastructure_instance-details.png "Oracle Cloud Infrastructure - Instance Details")
+![alt text](images/oracle-cloud-infrastructure_instance-details.png "Oracle Cloud Infrastructure - Instance Details")
 
 ## Configuring your Fn Server
 
